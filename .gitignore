@@ -1,1 +1,10 @@
 .env
+.env.*
+!.env.example
+*.env
+*.env.local
+
+# MySQL Workbench saved connections / dumps (may contain credentials)
+*.mwb
+*.mwb.bak
+*.sql.bak
