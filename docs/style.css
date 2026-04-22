@@ -1296,7 +1296,7 @@ i.book-modal-check {
     border-radius: 12px;
     height: 100%;
     width: auto;
-    animation: philSlider 45s linear infinite;
+    animation: philSlider 70s linear infinite;
 }
 @keyframes philSlider {
     0% {
@@ -3822,7 +3822,7 @@ span.review-star-txt {
         height: 240px;
     }
     .phil-slider img {
-        animation: philSlider 20s linear infinite;
+        animation: philSlider 55s linear infinite;
     }
 
     .hero-video2 {
