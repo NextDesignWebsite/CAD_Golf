@@ -1303,7 +1303,7 @@ i.book-modal-check {
         transform: translateX(0px);
     }
     100% {
-        transform: translateX(2014px);
+        transform: translateX(var(--phil-slider-distance, 2014px));
     }
 }
 .left-radius {
@@ -3823,14 +3823,6 @@ span.review-star-txt {
     }
     .phil-slider img {
         animation: philSlider 20s linear infinite;
-    }
-    @keyframes philSlider {
-        0% {
-            transform: translateX(0px);
-        }
-        100% {
-            transform: translateX(783px);
-        }
     }
 
     .hero-video2 {

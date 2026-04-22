@@ -887,3 +887,40 @@ setInterval(() => {
         video.play().catch(() => {});
     });
 })();
+
+(function calibratePhilSlider(){
+    const slider = document.querySelector(".phil-slider");
+    if(!slider) return;
+    const imgs = slider.querySelectorAll("img");
+    if(imgs.length < 2) return;
+
+    function calibrate(){
+        const half = Math.floor(imgs.length / 2);
+        const anchor = imgs[half];
+        if(!anchor) return;
+        const distance = anchor.offsetLeft - imgs[0].offsetLeft;
+        if(distance > 0){
+            slider.style.setProperty("--phil-slider-distance", distance + "px");
+        }
+    }
+
+    let pending = 0;
+    imgs.forEach(img => {
+        if(!(img.complete && img.naturalWidth > 0)){
+            pending++;
+            const done = () => {
+                pending--;
+                if(pending === 0) calibrate();
+            };
+            img.addEventListener("load", done, { once: true });
+            img.addEventListener("error", done, { once: true });
+        }
+    });
+    if(pending === 0) calibrate();
+
+    let resizeTimer;
+    window.addEventListener("resize", () => {
+        clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(calibrate, 150);
+    });
+})();
