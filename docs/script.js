@@ -869,3 +869,21 @@ setInterval(() => {
         }, 300);
     });
 }, 4000);
+
+(function cycleLessonVideo(){
+    const video = document.getElementById("phil-video");
+    if(!video) return;
+    const sources = [
+        "images/1129.mp4",
+        "images/swing1.mp4",
+        "images/swing2.mp4",
+        "images/swing3.mp4"
+    ];
+    let idx = 0;
+    video.addEventListener("ended", () => {
+        idx = (idx + 1) % sources.length;
+        video.src = sources[idx];
+        video.load();
+        video.play().catch(() => {});
+    });
+})();

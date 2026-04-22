@@ -3859,3 +3859,49 @@ span.review-star-txt {
         font-size: 13px;
     }
 }
+
+.urgency-ribbon {
+    position: absolute;
+    top: 22px;
+    right: -10px;
+    background: linear-gradient(135deg, #e53935, #b71c1c);
+    color: #fff;
+    font-weight: 700;
+    font-size: 14px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    padding: 10px 22px;
+    z-index: 2;
+    box-shadow: 0 6px 16px rgba(229, 57, 53, 0.55);
+    animation: urgency-pulse 1.6s ease-in-out infinite;
+    pointer-events: none;
+    border-radius: 2px;
+}
+.urgency-ribbon::after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    right: 0;
+    border: 5px solid transparent;
+    border-top-color: #7f0000;
+    border-right-color: #7f0000;
+}
+@keyframes urgency-pulse {
+    0%, 100% {
+        transform: scale(1);
+        box-shadow: 0 6px 16px rgba(229, 57, 53, 0.45);
+    }
+    50% {
+        transform: scale(1.06);
+        box-shadow: 0 8px 24px rgba(229, 57, 53, 0.85);
+    }
+}
+@media (max-width: 600px) {
+    .urgency-ribbon {
+        font-size: 12px;
+        padding: 8px 16px;
+        top: 14px;
+        right: -6px;
+        letter-spacing: 1px;
+    }
+}
