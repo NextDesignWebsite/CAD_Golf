@@ -2271,6 +2271,7 @@ i.ben-tick {
     aspect-ratio: 1 / 1;
     height: 300px;
     width: auto;
+    object-fit: cover;
 }
 .gal-img2 {
     animation: gal_slide2 123s linear infinite;
@@ -2278,6 +2279,7 @@ i.ben-tick {
     aspect-ratio: 1 / 1;
     height: 250px;
     width: auto;
+    object-fit: cover;
 }
 .btn-gal {
     margin-top: auto;
