@@ -30,7 +30,7 @@ function createHtml(){
         <a href="/"><div class="menu-section menu-dark">Home</div></a>
         <a href="about.html"><div class="menu-section menu-dark">About Me</div></a>
         <a href="lessons-and-fittings.html"><div class="menu-section">Golf Lessons</div></a>
-        <a href="/#events"><div class="menu-section menu-dark">View Events</div></a>
+        <a href="events.html"><div class="menu-section menu-dark">Events</div></a>
         <a href="gallery.html"><div class="menu-section">Gallery</div></a>
     `
 
@@ -46,7 +46,7 @@ function createHtml(){
                 <a href="/" class="header-link">Home</a>
                 <a href="about.html" class="header-link">About Me</a>
                 <a href="lessons-and-fittings.html" class="header-link">Golf Lessons</a>
-                <a href="/#events" class="header-link">View events</a>
+                <a href="events.html" class="header-link">Events</a>
                 <a href="gallery.html" class="header-link">Gallery</a>
             </div>
 
@@ -69,7 +69,7 @@ function createHtml(){
                         <img src="images/logo.png" class="foot-logo" />
                         <div class="foot-name">CAD Golf</div>
                     </div>
-                    <div class="foot-para">CAD Golf helps you book tailored golf events with ease. Trusted pros, stunning courses, and stress-free planning. Start today.</div>
+                    <div class="foot-para">Personalised golf lessons and coaching with PGA Professional Colton Alleyne-Davis at Tilgate Forest, plus events, Pro-Ams and golf trips.</div>
                     <div class="foot-social">
                         <a href="https://www.instagram.com/cadgolf90" target="_blank">
                         <i class="fa-brands fa-instagram foot-social-icon"></i>
@@ -90,7 +90,7 @@ function createHtml(){
                         <div class="foot-label">Navigation</div>
                         <a href="about-us.html" class="foot-link">About Me</a>
                         <a href="about.html" class="foot-link">Gallery</a>
-                        <a href="/#events" class="foot-link">Book event</a>
+                        <a href="events.html" class="foot-link">Book event</a>
                         <a href="/#contact" class="foot-link">Contact Me</a>
                     </div>
                     <div class="foot-ul">
@@ -127,6 +127,8 @@ function createHtml(){
         document.querySelectorAll(".header-link")[4].classList.add("header-link-active");
     } else if(document.querySelector(".lessons")){
         document.querySelectorAll(".header-link")[2].classList.add("header-link-active");
+    } else if(document.querySelector(".events")){
+        document.querySelectorAll(".header-link")[3].classList.add("header-link-active");
     }
 }
 createHtml();
@@ -195,9 +197,11 @@ const yrsObserver = new IntersectionObserver((entries, observer) => {
   }, {
     threshold: 0.1,
 });
-document.querySelectorAll(".yrs-target").forEach(target => {
-    yrsObserver.observe(target);
-});
+if(document.getElementById("yrsModal")){
+    document.querySelectorAll(".yrs-target").forEach(target => {
+        yrsObserver.observe(target);
+    });
+}
 
 function openInfoModal(){
     document.querySelector(".info-modal").style.opacity = "1";
@@ -396,16 +400,18 @@ document.querySelectorAll(".para-long-btn").forEach(btn => {
     });
 });
 
-document.getElementById("yrsModal").addEventListener("click", (e) => {
-    //if(!document.querySelector(".yrs-wrapper").contains(e.target)){
+if(document.getElementById("yrsModal")){
+    document.getElementById("yrsModal").addEventListener("click", (e) => {
+        //if(!document.querySelector(".yrs-wrapper").contains(e.target)){
+            document.getElementById("yrsModal").style.opacity = "0";
+            document.getElementById("yrsModal").style.pointerEvents = "none";
+        //}
+    });
+    document.querySelector("i.yrs-xmark").addEventListener("click", () => {
         document.getElementById("yrsModal").style.opacity = "0";
         document.getElementById("yrsModal").style.pointerEvents = "none";
-    //}
-});
-document.querySelector("i.yrs-xmark").addEventListener("click", () => {
-    document.getElementById("yrsModal").style.opacity = "0";
-    document.getElementById("yrsModal").style.pointerEvents = "none";
-});
+    });
+}
 
 
 
