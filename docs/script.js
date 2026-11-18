@@ -88,8 +88,8 @@ function createHtml(){
                 <div class="foot-nav">
                     <div class="foot-ul">
                         <div class="foot-label">Navigation</div>
-                        <a href="about-us.html" class="foot-link">About Me</a>
-                        <a href="about.html" class="foot-link">Gallery</a>
+                        <a href="about.html" class="foot-link">About Me</a>
+                        <a href="gallery.html" class="foot-link">Gallery</a>
                         <a href="events.html" class="foot-link">Book event</a>
                         <a href="/#contact" class="foot-link">Contact Me</a>
                     </div>
